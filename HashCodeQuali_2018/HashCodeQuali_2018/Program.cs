@@ -11,12 +11,11 @@ namespace HashCodeQuali_2018
 
         static void Main()
         {
+            Simulation simulation = new Simulation(0);
+            simulation.Calculate();
+            simulation.Output();
 
-            Array.ForEach(FileManager.GetIntArray(FileManager.getAllLines(0)[0]), i =>
-            Console.WriteLine(i + " " + i.GetType()));
-            var writer = FileManager.createOutput();
-            writer.WriteLine("acdc");
-            writer.Close();
+            Console.WriteLine("finish");
             Console.ReadKey();
         }
     }
