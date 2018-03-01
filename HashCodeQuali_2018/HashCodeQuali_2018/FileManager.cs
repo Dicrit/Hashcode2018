@@ -21,10 +21,9 @@ namespace HashCodeQuali_2018
 
         public static string getOutputFileName(string version = null)
         {
-            
+
             var str = string.Format("{0}\\outputs\\{2}\\{1}.out", currentDirectory, currentFile, version ?? ".");
-            if (version != null)
-                Directory.CreateDirectory(Path.GetDirectoryName(str));
+            Directory.CreateDirectory(Path.GetDirectoryName(str));
             return str;
         }
         public static StreamWriter createOutput(string version = null)
