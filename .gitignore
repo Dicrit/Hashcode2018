@@ -56,7 +56,7 @@ artifacts/
 outputs/
 # StyleCop
 StyleCopReport.xml
-
+online_qualification_round_2018.pdf
 # Files built by Visual Studio
 *_i.c
 *_p.c
