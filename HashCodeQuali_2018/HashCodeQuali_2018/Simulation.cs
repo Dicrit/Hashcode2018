@@ -45,9 +45,9 @@ namespace HashCodeQuali_2018
                 AssignRide(c);
         }
 
-        public void Output()
+        public void Output(string version)
         {
-            var writer = FileManager.createOutput("v1");
+            var writer = FileManager.createOutput(version);
             foreach (Car car in cars)
             {
                 string res = car.orders.Count.ToString();
@@ -68,12 +68,11 @@ namespace HashCodeQuali_2018
             foreach (Order order in orders)
             {
                 int dist = Point.Distance(car.endPos, order.start);
-                if (order.endTime < car.step + dist + order.value) continue;
+                
                 int wait = order.startTime - car.step;
-
-                int bonus = dist > wait ? Bonus : 0;
-
-                float val = (order.value + bonus) / (float)Math.Max(wait, dist);
+                if (order.endTime <= car.step + Math.Max(dist, wait) + order.value) continue;
+                int bonus = dist <= wait ? Bonus : 0;
+                float val = (order.value * (1 + bonus)) / (float)Math.Max(wait, dist);
 
                 if (val > maxVal)
                 {
